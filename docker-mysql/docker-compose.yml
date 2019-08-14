@@ -1,0 +1,22 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password --max_allowed_packet=1024M --max_connections=1000 --max_user_connections=900
+    restart: always
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
