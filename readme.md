@@ -18,6 +18,25 @@ make start
 ps:  由于目标是测试环境，没有精简cache，反而保留了cache，如果需要精简，使用精简镜像后复制repo或者sources即可。
 
 
+## 关于后台任务
+
+docker默认不允许启动后台任务，所以service和systemctl就不能用了，会报错
+
+>Failed to get D-Bus connection: Operation not permitted
+
+可以使用替换方案：
+
+https://github.com/gdraheim/docker-systemctl-replacement
+
+
+也可以直接本地特权模式启动：
+
+```
+docker run -d -it --rm --name=ldap2  --privileged ryan/centos:7 /usr/sbin/init
+docker exec -it ldap2 /bin/bash
+```
+
+
 
 ## docker daemon
 
