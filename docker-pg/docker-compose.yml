@@ -1,0 +1,19 @@
+version: '3'
+services:
+    postgres:
+        image: postgres
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+          - POSTGRES_DB=ccb_village
+        # volumes:
+        #   - ./data:/var/lib/postgresql/data
+        #   - ./script:/docker-entrypoint-initdb.d
+        ports: 
+          - "5432:5432"
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8088:8080
