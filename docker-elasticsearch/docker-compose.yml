@@ -10,15 +10,13 @@ services:
       - cluster.initial_master_nodes=es01,es02,es03
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      # - xpack.security.enabled=true
-      # - xpack.license.self_generated.type=basic
-      # - xpack.security.transport.ssl.enabled=true
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
-      - ./data01:/usr/share/elasticsearch/data
+      - ./es01/data01:/usr/share/elasticsearch/data
+      - ./es01/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
     ports:
@@ -36,15 +34,13 @@ services:
       - cluster.initial_master_nodes=es01,es02,es03
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      # - xpack.security.enabled=true
-      # - xpack.license.self_generated.type=basic
-      # - xpack.security.transport.ssl.enabled=true
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
-      - ./data02:/usr/share/elasticsearch/data
+      - ./es02/data02:/usr/share/elasticsearch/data
+      - ./es02/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
     ports:
@@ -62,15 +58,13 @@ services:
       - cluster.initial_master_nodes=es01,es02,es03
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      # - xpack.security.enabled=true
-      # - xpack.license.self_generated.type=basic
-      # - xpack.security.transport.ssl.enabled=true
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
-      - ./data03:/usr/share/elasticsearch/data
+      - ./es03/data03:/usr/share/elasticsearch/data
+      - ./es03/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
     ports:
@@ -92,14 +86,6 @@ services:
       - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     networks:
       - elastic
-
-# volumes:
-#   data01:
-#     driver: local
-#   data02:
-#     driver: local
-#   data03:
-#     driver: local
 
 networks:
   elastic:
