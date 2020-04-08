@@ -72,3 +72,9 @@ sudo docker-compose up
 ```
 
 5. 浏览器访问localhost:9200
+
+输入elastic和对应的密码即可
+
+6. 浏览器访问localhost:5601
+
+kibana里输入elastic和对应密码即可
