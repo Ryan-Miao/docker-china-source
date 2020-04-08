@@ -1,0 +1,9 @@
+# cluster.name: my-elasticsearch-cluster
+network.host: 0.0.0.0
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.keystore.type: PKCS12
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.type: PKCS12
