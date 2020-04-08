@@ -58,23 +58,15 @@ PASSWORD elastic = q5f2qNfUJQyvZPIz57MZ
 ```
 
 
+4. 重新启动
 
+修改kibana.yml
 ```
-Changed password for user apm_system
-PASSWORD apm_system = SLawtwfAhmCta9A1kTx8
+elasticsearch.password: 你的密码
+```
 
-Changed password for user kibana
-PASSWORD kibana = GZbuEuBVpbDOqbvMKQmC
-
-Changed password for user logstash_system
-PASSWORD logstash_system = v099KmK4Rfxs8bzKihFn
-
-Changed password for user beats_system
-PASSWORD beats_system = URAtc4f0apKkI0iQeDpp
-
-Changed password for user remote_monitoring_user
-PASSWORD remote_monitoring_user = RyXSIp2EjDB6eLnwnxlr
-
-Changed password for user elastic
-PASSWORD elastic = qESpECBmHXGwsAMiEafh
+重启
+```
+sudo docker-compose stop
+sudo docker-compose up
 ```
