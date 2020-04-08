@@ -9,3 +9,4 @@ xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 xpack.security.transport.ssl.truststore.type: PKCS12
 
 xpack.security.audit.enabled: true
+xpack.monitoring.collection.enabled: true

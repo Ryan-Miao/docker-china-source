@@ -23,8 +23,21 @@ metricbeat.modules:
   hosts: ["unix:///var/run/docker.sock"]
   period: 10s
   enabled: true
-- module: elasticsearch-xpack
-  enabled: true
+- module: elasticsearch
+  metricsets:
+    - ccr
+    - cluster_stats
+    - index
+    - index_recovery
+    - index_summary
+    - ml_job
+    - node_stats
+    - shard
+  period: 10s
+  hosts: ["http://localhost:9200"]
+  #username: "user"
+  #password: "secret"
+  xpack.enabled: true
 
 processors:
   - add_cloud_metadata: ~
