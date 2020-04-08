@@ -34,9 +34,9 @@ metricbeat.modules:
     - node_stats
     - shard
   period: 10s
-  hosts: ["http://localhost:9200"]
-  #username: "user"
-  #password: "secret"
+  hosts: ["http://es01:9200"]
+  username: "remote_monitoring_user"
+  password: "DtZCrCkVTZsinRn3tW3D"
   xpack.enabled: true
 
 processors:
