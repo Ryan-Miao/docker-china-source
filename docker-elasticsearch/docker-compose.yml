@@ -15,7 +15,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./es01/data01:/usr/share/elasticsearch/data
+      - ./es01/data:/usr/share/elasticsearch/data
       - ./es01/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
@@ -39,7 +39,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./es02/data02:/usr/share/elasticsearch/data
+      - ./es02/data:/usr/share/elasticsearch/data
       - ./es02/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
@@ -63,7 +63,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./es03/data03:/usr/share/elasticsearch/data
+      - ./es03/data:/usr/share/elasticsearch/data
       - ./es03/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
