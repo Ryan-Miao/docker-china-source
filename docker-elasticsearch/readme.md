@@ -70,3 +70,5 @@ elasticsearch.password: 你的密码
 sudo docker-compose stop
 sudo docker-compose up
 ```
+
+5. 浏览器访问localhost:9200
