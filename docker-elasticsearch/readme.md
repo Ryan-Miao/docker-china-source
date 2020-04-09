@@ -78,3 +78,38 @@ sudo docker-compose up
 6. 浏览器访问localhost:5601
 
 kibana里输入elastic和对应密码即可
+
+7. 可选择安装metricbeat
+
+```
+# 加载metricbeat自带的dashboard模板
+sudo docker run \
+  --network=docker-elasticsearch_elastic \
+docker.elastic.co/beats/metricbeat:7.6.2 \
+setup -E setup.kibana.host=kib01:5601 \
+-E output.elasticsearch.hosts=["es01:9200"] \
+-E output.elasticsearch.username=elastic \
+-E output.elasticsearch.password=q5f2qNfUJQyvZPIz57MZ
+
+
+# 收集宿主机运行的docker实例信息
+sudo docker run -it \
+  --network=docker-elasticsearch_elastic \
+  --name=metricbeat \
+  --user=root \
+  --volume="$(pwd)/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml" \
+  --volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
+  --volume="/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro" \
+  --volume="/proc:/hostfs/proc:ro" \
+  --volume="/:/hostfs:ro" \
+  docker.elastic.co/beats/metricbeat:7.6.2 metricbeat \
+   -E   ELASTICSEARCH_HOSTS=es01:9200 \
+   -E   ELASTICSEARCH_USERNAME=elastic \
+   -E   ELASTICSEARCH_PASSWORD=q5f2qNfUJQyvZPIz57MZ \
+   -E   ELASTICSEARCH_REMOTE_USERNAME=remote_monitoring_user \
+   -E   ELASTICSEARCH_REMOTE_PASSWORD=DtZCrCkVTZsinRn3tW3D \
+```
+
+- network是要和es网络联通
+- out到es需要填写es的密码
+- 收集xpack-es的统计，需要使用es的remote用户
