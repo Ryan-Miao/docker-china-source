@@ -93,6 +93,7 @@ setup -E setup.kibana.host=kib01:5601 \
 
 
 # 收集宿主机运行的docker实例信息
+sudo docker rm metricbeat
 sudo docker run -it \
   --network=docker-elasticsearch_elastic \
   --name=metricbeat \
@@ -105,11 +106,10 @@ sudo docker run -it \
   docker.elastic.co/beats/metricbeat:7.6.2 metricbeat \
    -E   ELASTICSEARCH_HOSTS=es01:9200 \
    -E   ELASTICSEARCH_USERNAME=elastic \
-   -E   ELASTICSEARCH_PASSWORD=q5f2qNfUJQyvZPIz57MZ \
-   -E   ELASTICSEARCH_REMOTE_USERNAME=remote_monitoring_user \
-   -E   ELASTICSEARCH_REMOTE_PASSWORD=DtZCrCkVTZsinRn3tW3D \
+   -E   ELASTICSEARCH_PASSWORD=q5f2qNfUJQyvZPIz57MZ 
 ```
 
 - network是要和es网络联通
 - out到es需要填写es的密码
-- 收集xpack-es的统计，需要使用es的remote用户
+
+更多收集细节见 https://www.elastic.co/guide/en/beats/metricbeat/7.6/running-on-docker.html

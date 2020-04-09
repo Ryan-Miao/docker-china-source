@@ -23,21 +23,21 @@ metricbeat.modules:
   hosts: ["unix:///var/run/docker.sock"]
   period: 10s
   enabled: true
-- module: elasticsearch
-  metricsets:
-    - ccr
-    - cluster_stats
-    - index
-    - index_recovery
-    - index_summary
-    - ml_job
-    - node_stats
-    - shard
-  period: 10s
-  hosts: ["http://es01:9200"]
-  username: "remote_monitoring_user"
-  password: "DtZCrCkVTZsinRn3tW3D"
-  xpack.enabled: true
+# - module: elasticsearch
+#   metricsets:
+#     - ccr
+#     - cluster_stats
+#     - index
+#     - index_recovery
+#     - index_summary
+#     - ml_job
+#     - node_stats
+#     - shard
+#   period: 10s
+#   hosts: ["http://es01:9200"]
+#   username: '${ELASTICSEARCH_REMOTE_USERNAME:remote_monitoring_user}'
+#   password: '${ELASTICSEARCH_REMOTE_PASSWORD:DtZCrCkVTZsinRn3tW3D}'
+#   xpack.enabled: false
 
 processors:
   - add_cloud_metadata: ~
