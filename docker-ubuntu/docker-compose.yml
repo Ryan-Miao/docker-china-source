@@ -1,0 +1,8 @@
+version: '3'
+services:
+  ubuntu:
+    build: 
+      context: ./
+    image: ryan/ubuntu:18.04
+
+# docker run -it --rm ryan/ubuntu:18.04 /bin/bash
