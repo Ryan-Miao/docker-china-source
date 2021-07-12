@@ -8,16 +8,13 @@ services:
     command: --default-authentication-plugin=mysql_native_password --max_allowed_packet=1024M --max_connections=1000 --max_user_connections=900
     restart: always
     volumes:
-      - ./conf:/etc/mysql/conf.d
-      - ./data:/var/lib/mysql
+      - db:/var/lib/mysql
+      - conf:/etc/mysql/conf.d
       - ./script:/docker-entrypoint-initdb.d
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=demo
+      - MYSQL_USER=demo
     ports:
       - 3306:3306
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
