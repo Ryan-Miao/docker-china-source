@@ -18,3 +18,8 @@ services:
       - MYSQL_USER=demo
     ports:
       - 3306:3306
+
+
+volumes: 
+  db:
+  conf:
