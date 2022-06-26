@@ -1,5 +1,10 @@
 #!/bin/bash
-echo 'start' > a;
-echo "cur port: $server_port" >> a;
+logFile=a.log
+echo 'start' > $logFile;
+echo "cur port: $server_port" >> $logFile;
 # tail -f a;
-java -jar *.jar --server.port=${server_port}
+
+
+
+
+java ${JVM_OPT} -jar *.jar --server.port=${server_port}

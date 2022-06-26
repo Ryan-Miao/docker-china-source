@@ -1,4 +1,6 @@
-ng:
+version: '3'
+services:
+  ng: 
     image: nginx
     volumes:
      - ./conf:/etc/nginx/conf.d
