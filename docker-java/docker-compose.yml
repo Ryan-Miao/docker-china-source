@@ -1,0 +1,14 @@
+version: '3'
+services:
+  myapp:
+    build: 
+      context: ./
+    image: ryan/myapp:8
+    environment: 
+      - server_port=8083
+    # ports: 
+      # - 8083:8083
+    command: 
+      - /bin/bash
+
+# docker run -it --rm ryan/myapp:8 /bin/bash

@@ -1,0 +1,10 @@
+ng:
+    image: nginx
+    volumes:
+     - ./conf:/etc/nginx/conf.d
+    ports:
+     - "80:80"
+     - "8090:8090"
+    environment:
+     - NGINX_HOST=foobar.com
+     - NGINX_PORT=80
